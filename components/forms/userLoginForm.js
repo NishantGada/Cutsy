@@ -1,6 +1,8 @@
-import { View, Text, StyleSheet, TouchableWithoutFeedback, Button } from 'react-native'
+import { View, Text, StyleSheet, TouchableWithoutFeedback, Button, TouchableOpacity, Dimensions } from 'react-native'
 import React, { useState } from 'react'
 import { TextInput } from 'react-native-gesture-handler';
+
+const screenWidth = Dimensions.get('window').width;
 
 export default function UserLoginForm({ handleNewUser, handleOnLogin }) {
     const [username, setUsername] = useState('');
@@ -25,10 +27,14 @@ export default function UserLoginForm({ handleNewUser, handleOnLogin }) {
                     secureTextEntry
                 />
             </View>
-            <Button style={styles.button} title="Login" onPress={handleOnLogin} />
-            <TouchableWithoutFeedback onPress={handleNewUser}>
-                <Text>New user?</Text>
-            </TouchableWithoutFeedback>
+            <View style={styles.loginButtonContainer}>
+                <TouchableOpacity style={styles.loginButton} onPress={() => handleOnLogin(username, password)}>
+                    <Text style={{ color: "white", fontWeight: "bold" }}>Login</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={handleNewUser}>
+                    <Text>New user?</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )
 }
@@ -50,7 +56,19 @@ const styles = StyleSheet.create({
         height: 50,
         marginBottom: 20,
     },
-    button: {
-        backgroundColor: "green"
-    }
+    loginButtonContainer: {
+        flexDirection: "column",
+        alignItems: "center",
+        rowGap: 20,
+        marginTop: 10,
+    },
+    loginButton: {
+        color: "white",
+        borderWidth: 1,
+        borderColor: "purple",
+        backgroundColor: "purple",
+        width: screenWidth - 20,
+        padding: 10,
+        alignItems: "center",
+    },
 });
