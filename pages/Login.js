@@ -1,34 +1,58 @@
-import { View, Text, Button, StyleSheet } from 'react-native'
-import React from 'react'
+import { View, Text, Button, StyleSheet, SafeAreaView } from 'react-native'
+import React, { useState } from 'react'
 import UserLoginForm from '../components/forms/userLoginForm'
+import sendRequest from '../utils/sendRequest';
 
 export default function Login({ navigation }) {
     const handleNewUser = () => {
         navigation.navigate('Signup');
     }
 
-    const handleOnLogin = () => {
-        navigation.navigate('Main');
+    const handleOnLogin = async (username, password) => {
+        if (username !== null && password !== null) {
+            console.log("username: ", username);
+            console.log("password: ", password);
+
+            try {
+                const response = await sendRequest("http://192.168.29.188:8080/validate-login", {
+                    "username": "gadanishant",
+                    "password": password
+                },
+                    "POST",
+                    {}
+                )
+
+                console.log("response.data: ", response.data)
+                if (response.data) {
+                    navigation.navigate('Main') 
+                } else {
+                    navigation.navigate('Login')
+                    alert("Invalid username or password")
+                }
+                // setUser(response.data)
+            } catch (error) {
+                console.log(error);
+            }
+        } else {
+            alert("Invalid username or password")
+        }
     }
 
     return (
-        <View>
+        <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
             <View style={styles.loginHeader}>
-                {/* <Button
-                    title="<"
-                    onPress={() => navigation.navigate('Signup')}
-                /> */}
-                <Text>Login</Text>
+                <Text style={{ fontStyle: "italic", fontWeight: "bold", fontSize: 24, marginBottom: 10 }}>Login</Text>
             </View>
-            <UserLoginForm handleNewUser={handleNewUser} handleOnLogin={handleOnLogin} />
-        </View>
+            <UserLoginForm
+                handleNewUser={handleNewUser}
+                handleOnLogin={handleOnLogin}
+            />
+        </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
     loginHeader: {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center"
+        marginTop: 20
     }
 })
