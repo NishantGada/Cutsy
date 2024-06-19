@@ -13,12 +13,13 @@ export default Appbar
 
 const styles = StyleSheet.create({
     appbar: {
-        alignItems: 'center',
+        // alignItems: 'center',
         marginBottom: 20
     },
     appbarHeader: {
-        fontSize: 24,
+        fontSize: 28,
         fontStyle: 'italic',
         fontWeight: 'bold',
+        color: "purple"
     }
 })
