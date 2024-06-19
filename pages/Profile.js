@@ -18,35 +18,12 @@ export default function Profile() {
         }
     }
 
-    const onPress = async () => {
-        try {
-            const response = await sendRequest(
-                "http://192.168.29.188:8080/create-user",
-                sampleUsers[1],                
-                "POST",
-                {}
-            )
-        } catch (error) {
-
-        }
-    }
-
-    /*
-    useEffect(() => {
-        getProfileDetailsAPI();
-    }, [])
-    */
-
     return (
         <SafeAreaView style={styles.ProfileContainer}>
             <Text>Profile</Text>
             <Text>{message}</Text>
             <Text>{user.firstName}</Text>
             <Text>{user.lastName}</Text>
-
-            <Pressable style={styles.button} onPress={onPress}>
-                <Text style={styles.text}>Send</Text>
-            </Pressable>
         </SafeAreaView>
     )
 }
