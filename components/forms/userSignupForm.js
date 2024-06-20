@@ -1,9 +1,12 @@
 import * as React from 'react';
-import { View, Text, TextInput, StyleSheet, ScrollView, Button } from 'react-native';
+import { View, Text, TextInput, StyleSheet, ScrollView, Button, Dimensions, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
+import ButtonTheme from '../buttonTheme';
 
-export default function UserSignupForm({ handleOnSignup }) {
+const screenWidth = Dimensions.get('window').width;
+
+export default function UserSignupForm({ handleOnSignup, handleExistingUser }) {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [username, setUsername] = useState('');
@@ -20,32 +23,8 @@ export default function UserSignupForm({ handleOnSignup }) {
     const [pincode, setPincode] = useState('');
     const [country, setCountry] = useState('');
 
-    const handleSubmit = () => {
-        const userData = {
-            firstName,
-            lastName,
-            username,
-            password,
-            dob,
-            gender,
-            age,
-            email,
-            phone,
-            addressLine1,
-            addressLine2,
-            city,
-            state,
-            pincode,
-            country,
-        };
-
-        console.log(userData);
-
-
-    };
-
     return (
-        <ScrollView style={styles.container}>
+        <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
             <View>
                 <Text>First Name:</Text>
                 <TextInput
@@ -184,7 +163,15 @@ export default function UserSignupForm({ handleOnSignup }) {
                     onChangeText={setCountry}
                 />
             </View>
-            <Button title="Submit" onPress={handleOnSignup} />
+            <View style={styles.signupButtonContainer}>
+                {/* <TouchableOpacity style={styles.signupButton} onPress={() => handleOnSignup}>
+                    <Text style={{ color: "white", fontWeight: "bold" }}>Login</Text>
+                </TouchableOpacity> */}
+                <ButtonTheme buttonText="Sign up" onPressAction={handleOnSignup} />
+                <TouchableOpacity onPress={handleExistingUser}>
+                    <Text style={{ color: "gray", fontStyle: "italic", fontSize: 16 }}>Existing user?</Text>
+                </TouchableOpacity>
+            </View>
         </ScrollView>
     );
 }
@@ -192,18 +179,25 @@ export default function UserSignupForm({ handleOnSignup }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingHorizontal: 20,
-        paddingBottom: 100
+        // paddingHorizontal: 20,
+        // paddingBottom: 150
     },
     input: {
         height: 40,
         borderColor: 'gray',
         borderWidth: 1,
+        borderRadius: 5,
         marginBottom: 10,
         paddingLeft: 8,
     },
     picker: {
         height: 50,
         marginBottom: 20,
+    },
+    signupButtonContainer: {
+        flexDirection: "column",
+        alignItems: "center",
+        rowGap: 20,
+        marginVertical: 10,
     },
 });

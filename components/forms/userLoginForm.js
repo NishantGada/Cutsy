@@ -1,12 +1,13 @@
 import { View, Text, StyleSheet, TouchableWithoutFeedback, Button, TouchableOpacity, Dimensions } from 'react-native'
 import React, { useState } from 'react'
 import { TextInput } from 'react-native-gesture-handler';
+import ButtonTheme from '../buttonTheme';
 
 const screenWidth = Dimensions.get('window').width;
 
 export default function UserLoginForm({ handleNewUser, handleOnLogin }) {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [username, setUsername] = useState('gadanishant');
+    const [password, setPassword] = useState('qwe');
 
     return (
         <View>
@@ -28,11 +29,12 @@ export default function UserLoginForm({ handleNewUser, handleOnLogin }) {
                 />
             </View>
             <View style={styles.loginButtonContainer}>
-                <TouchableOpacity style={styles.loginButton} onPress={() => handleOnLogin(username, password)}>
+                {/* <TouchableOpacity style={styles.loginButton} onPress={() => handleOnLogin(username, password)}>
                     <Text style={{ color: "white", fontWeight: "bold" }}>Login</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                <ButtonTheme buttonText="Login" onPressAction={() => handleOnLogin(username, password)} />
                 <TouchableOpacity onPress={handleNewUser}>
-                    <Text>New user?</Text>
+                    <Text style={{ color: "gray", fontStyle: "italic", fontSize: 16 }} >New user?</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -49,6 +51,7 @@ const styles = StyleSheet.create({
         height: 40,
         borderColor: 'gray',
         borderWidth: 1,
+        borderRadius: 5,
         marginBottom: 10,
         paddingLeft: 8,
     },
@@ -61,14 +64,5 @@ const styles = StyleSheet.create({
         alignItems: "center",
         rowGap: 20,
         marginTop: 10,
-    },
-    loginButton: {
-        color: "white",
-        borderWidth: 1,
-        borderColor: "purple",
-        backgroundColor: "purple",
-        width: screenWidth - 20,
-        padding: 10,
-        alignItems: "center",
-    },
+    }
 });
