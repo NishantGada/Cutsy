@@ -1,9 +1,9 @@
-import { View, Text, StyleSheet, SafeAreaView, Button, Pressable } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, Button, Pressable, TouchableOpacity } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import sendRequest from '../utils/sendRequest';
 import sampleUsers from '../utils/sampleUsers.json';
 
-export default function Profile() {
+export default function Profile({ navigation }) {
     const [message, setMessage] = useState();
     const [user, setUser] = useState({});
 
@@ -24,6 +24,9 @@ export default function Profile() {
             <Text>{message}</Text>
             <Text>{user.firstName}</Text>
             <Text>{user.lastName}</Text>
+            <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+                <Text>Logout</Text>
+            </TouchableOpacity>
         </SafeAreaView>
     )
 }
