@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
 
     searchBar: {
         borderWidth: 1,
-        borderColor: 'lightgray',
+        borderColor: 'purple',
         borderRadius: 6,
         padding: 15
     },
@@ -130,7 +130,8 @@ const styles = StyleSheet.create({
     heading: {
         textAlign: "center",
         fontStyle: "italic",
-        color: "purple"
+        color: "purple",
+        fontWeight: "bold"
     },
 
     genderCategory: {
