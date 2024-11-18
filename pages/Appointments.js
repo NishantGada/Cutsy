@@ -1,7 +1,9 @@
 import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Dimensions, Modal } from 'react-native'
 import React, { useState } from 'react'
 import { ScrollView } from 'react-native-gesture-handler'
-import ButtonTheme from '../components/buttonTheme';
+import CustomButton from '../components/CustomButton';
+import previouslyVisited from "../utils/previouslyVisited.json"
+import SalonCardList from '../components/SalonCardList';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -27,12 +29,12 @@ export default function Appointments() {
                     <View style={styles.modalOverlay}>
                         <View style={styles.newAppointmentModal}>
                             <Text>Some Text</Text>
-                            <ButtonTheme buttonText="Submit" onPressAction={closeModal} />
+                            <CustomButton buttonText="Submit" onPressAction={closeModal} />
                         </View>
                     </View>
                 </Modal>
             </View>
-            <ButtonTheme buttonText="Schedule new appointment" onPressAction={openModal} />
+            <CustomButton buttonText="Schedule new appointment" onPressAction={openModal} />
             <View style={{ width: screenWidth * 0.9, borderWidth: 0.5, borderColor: "lightgray", alignSelf: "center" }}></View>
             <View>
                 <Text style={{ fontWeight: "bold", fontStyle: "italic", color: "purple", marginBottom: 10 }}>Your upcoming appointments...</Text>
@@ -48,14 +50,25 @@ export default function Appointments() {
                     <View style={styles.salonCard}></View>
                 </ScrollView>
             </View>
-            <View>
+            <View style={{ 
+                alignItems: "center", 
+                // borderWidth: 1, 
+                // borderColor: "red" 
+            }}>
                 <Text style={{ fontWeight: "bold", fontStyle: "italic", color: "purple", marginBottom: 10 }}>Your previous appointments...</Text>
-                <View>
-                    <Text>Appointment 1</Text>
+                <ScrollView>
+                    {/* <Text>Appointment 1</Text>
                     <Text>Appointment 2</Text>
                     <Text>Appointment 3</Text>
-                    <Text>Appointment 4</Text>
-                </View>
+                    <Text>Appointment 4</Text> */}
+                    {
+                        previouslyVisited.map((salon, key) => {
+                            return (
+                                <SalonCardList key={key} salonDetails={salon} />
+                            )
+                        })
+                    }
+                </ScrollView>
             </View>
         </SafeAreaView>
     )

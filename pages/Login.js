@@ -14,7 +14,7 @@ export default function Login({ navigation }) {
             console.log("password: ", password);
 
             try {
-                const response = await sendRequest("http://192.168.29.188:8080/validate-login", {
+                const response = await sendRequest("http://10.0.0.97:8080/validate-login", {
                     "username": "gadanishant",
                     "password": password
                 },

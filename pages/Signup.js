@@ -1,6 +1,6 @@
-import { View, Text, Button, StyleSheet, Dimensions, Modal } from 'react-native'
-import React, { useState } from 'react'
-import UserSignupForm from '../components/forms/userSignupForm'
+import React, { useState } from 'react';
+import { Dimensions, Modal, StyleSheet, Text, View } from 'react-native';
+import UserSignupForm from '../components/forms/userSignupForm';
 import sampleUsers from '../utils/sampleUsers.json';
 import sendRequest from '../utils/sendRequest';
 

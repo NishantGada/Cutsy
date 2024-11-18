@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableWithoutFeedback, Button, TouchableOpacity, Dimensions } from 'react-native'
 import React, { useState } from 'react'
 import { TextInput } from 'react-native-gesture-handler';
-import ButtonTheme from '../buttonTheme';
+import CustomButton from '../CustomButton';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -32,7 +32,7 @@ export default function UserLoginForm({ handleNewUser, handleOnLogin }) {
                 {/* <TouchableOpacity style={styles.loginButton} onPress={() => handleOnLogin(username, password)}>
                     <Text style={{ color: "white", fontWeight: "bold" }}>Login</Text>
                 </TouchableOpacity> */}
-                <ButtonTheme buttonText="Login" onPressAction={() => handleOnLogin(username, password)} />
+                <CustomButton buttonText="Login" onPressAction={() => handleOnLogin(username, password)} />
                 <TouchableOpacity onPress={handleNewUser}>
                     <Text style={{ color: "gray", fontStyle: "italic", fontSize: 16 }} >New user?</Text>
                 </TouchableOpacity>

@@ -1,6 +1,8 @@
-import { View, Text, StyleSheet, SafeAreaView, Button, TextInput, Dimensions, ScrollView, TouchableOpacity, Image } from 'react-native';
-import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
+import { Dimensions, Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import SalonCard from '../components/SalonCard';
+import previouslyVisited from "../utils/previouslyVisited.json"
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -70,11 +72,19 @@ export default function Home() {
                 <View style={{ rowGap: 20 }}>
                     <Text style={styles.heading}>---------------- Previous Visited ----------------</Text>
                     <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.cardsContainer}>
+                        {/* <View style={styles.salonCard}></View> */}
+                        {/* <SalonCard />
                         <View style={styles.salonCard}></View>
                         <View style={styles.salonCard}></View>
                         <View style={styles.salonCard}></View>
-                        <View style={styles.salonCard}></View>
-                        <View style={styles.salonCard}></View>
+                        <View style={styles.salonCard}></View> */}
+                        {
+                            previouslyVisited.map((salon, key) => {
+                                return (
+                                    <SalonCard key={key} salonDetails={salon} />
+                                )
+                            })
+                        }
                     </ScrollView>
                 </View>
             </SafeAreaView>

@@ -19,6 +19,25 @@
         "reviewsGivenList": []
     },
     {
+        "firstName": "Nishant",
+        "lastName": "Gada",
+        "username": "gadanishant",
+        "password": "qwe",
+        "dob": "2000-01-01T00:00:00Z",
+        "gender": "Male",
+        "age": 24,
+        "email": "nishant.gada@example.com",
+        "phone": "1231231230",
+        "addressLine1": "123 Main Street",
+        "addressLine2": "Apt 702",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pincode": "400601",
+        "country": "India",
+        "profilePicture": "profile-pic-url",
+        "reviewsGivenList": []
+    },
+    {
         "firstName": "Aarav",
         "lastName": "Sharma",
         "username": "aaravsharma",

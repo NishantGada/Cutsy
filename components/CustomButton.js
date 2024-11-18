@@ -1,9 +1,9 @@
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
 import React from 'react'
 
 const screenWidth = Dimensions.get('window').width;
 
-export default function ButtonTheme({ onPressAction, buttonText }) {
+export default function CustomButton({ buttonText, onPressAction }) {
     return (
         <TouchableOpacity onPress={onPressAction}>
             <View style={styles.button}>

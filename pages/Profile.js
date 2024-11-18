@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet, SafeAreaView, Button, Pressable, TouchableOpacity } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react';
+import { SafeAreaView, StyleSheet, Text } from 'react-native';
+// import ButtonTheme from '../components/ButtonTheme';
 import sendRequest from '../utils/sendRequest';
-import sampleUsers from '../utils/sampleUsers.json';
+import CustomButton from '../components/CustomButton';
 
 export default function Profile({ navigation }) {
-    const [message, setMessage] = useState();
     const [user, setUser] = useState({});
 
     const getProfileDetailsAPI = async () => {
@@ -21,12 +21,10 @@ export default function Profile({ navigation }) {
     return (
         <SafeAreaView style={styles.ProfileContainer}>
             <Text>Profile</Text>
-            <Text>{message}</Text>
-            <Text>{user.firstName}</Text>
-            <Text>{user.lastName}</Text>
-            <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+            {/* <TouchableOpacity onPress={() => navigation.navigate("Login")}>
                 <Text>Logout</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
+            <CustomButton buttonText="Logout" onPressAction={() => navigation.navigate("Login")} />
         </SafeAreaView>
     )
 }

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { View, Text, TextInput, StyleSheet, ScrollView, Button, Dimensions, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 import { Picker } from '@react-native-picker/picker';
-import ButtonTheme from '../buttonTheme';
+import CustomButton from '../CustomButton';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -167,7 +167,7 @@ export default function UserSignupForm({ handleOnSignup, handleExistingUser }) {
                 {/* <TouchableOpacity style={styles.signupButton} onPress={() => handleOnSignup}>
                     <Text style={{ color: "white", fontWeight: "bold" }}>Login</Text>
                 </TouchableOpacity> */}
-                <ButtonTheme buttonText="Sign up" onPressAction={handleOnSignup} />
+                <CustomButton buttonText="Sign up" onPressAction={handleOnSignup} />
                 <TouchableOpacity onPress={handleExistingUser}>
                     <Text style={{ color: "gray", fontStyle: "italic", fontSize: 16 }}>Existing user?</Text>
                 </TouchableOpacity>

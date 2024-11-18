@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "salonName": "Silver Scissors",
+        "salonCity": "Mumbai",
+        "salonStarRating": 4,
+        "dateVisited": "3rd June, 2024",
+        "amountPaid": 250,
+        "attendedBy": "Irshad"
+    },
+    {
+        "id": 2,
+        "salonName": "Golden Shears",
+        "salonCity": "Delhi",
+        "salonStarRating": 5,
+        "dateVisited": "15th May, 2024",
+        "amountPaid": 300,
+        "attendedBy": "Anjali"
+    },
+    {
+        "id": 3,
+        "salonName": "Platinum Cuts",
+        "salonCity": "Bangalore",
+        "salonStarRating": 3,
+        "dateVisited": "20th April, 2024",
+        "amountPaid": 200,
+        "attendedBy": "Raj"
+    },
+    {
+        "id": 4,
+        "salonName": "Diamond Blades",
+        "salonCity": "Chennai",
+        "salonStarRating": 4,
+        "dateVisited": "10th March, 2024",
+        "amountPaid": 275,
+        "attendedBy": "Suresh"
+    },
+    {
+        "id": 5,
+        "salonName": "Emerald Styles",
+        "salonCity": "Kolkata",
+        "salonStarRating": 5,
+        "dateVisited": "25th February, 2024",
+        "amountPaid": 350,
+        "attendedBy": "Rina"
+    }
+]
